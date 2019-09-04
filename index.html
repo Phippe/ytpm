@@ -1,9 +1,263 @@
 <!DOCTYPE html>
 <html>
-    <head>
 
-    </head>
-    <body>
-        
-    </body>
+<head>
+    <title>YTPM</title>
+    <meta name="Description" content="&quot;Once a hobo, always a hobo&quot; -Oehrli">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script async src="main.js"></script>
+    <!-- VS Code Shortcuts ^^:
+    shift + alt + a: comment
+    shift + alt + f: format -->
+</head>
+
+<body onload="menuEventListener('tpMenuItem','target-playlist-active');">
+    <div id="no-grid-support">
+        Your browser does not support CSS Grid Layout and therefore can not
+        display this website correctly. Please update to a newer version.
+    </div>
+    <div id="container">
+        <header>
+            <img id="logo" alt="YT-Logo" src="images/YouTube-icon-our_icon-128.png">
+            <h1 id="title">YouTube Playlist Manager <span style="font-size: x-small">by Phippe</span></h1>
+            <button id="authorise">
+                Abmelden
+            </button>
+            <span id="user-name">Paul</span>
+            <img id="profile-picture" alt="Profilbild" src="images/Paul.jpg">
+            <!-- <span>owo what's this</span> -->
+        </header>
+        <div id="playlist-choose" class="main-section">
+            <h2>Mediathek</h2>
+            <section class="sub-section">
+                <h3>Eigene Playlists</h3>
+                Deine eigenen Playlists.
+                <ul class="panels">
+                    <li class="panel playlist-panel">
+                        <div class="thumbnail">
+                            <img class="thumbnail-image" src="images/border-test.png">
+                            <div class="thumbnail-overlay">169 Elemente</div>
+                        </div>
+                        <h3 class="panel-title">Das ist ein Testtitel, ye boii</h3>
+                        <span class="panel-channel">FlashMiners</span>
+                        <div class="panel-tags">
+                            <span class="tag">Manuell</span>
+                            <span class="tag">A-Z</span>
+                        </div>
+                    </li>
+                    <li class="panel playlist-panel">
+                        <div class="thumbnail">
+                            <img class="thumbnail-image" src="images/DSC07281.JPG">
+                            <div class="thumbnail-overlay">196 Elemente</div>
+                        </div>
+                        <h3 class="panel-title">Das ist ein Testtitel, aber viel, viel, viiiieeeeel länger ^^</h3>
+                        <span class="panel-channel">FlashMiners</span>
+                        <div class="panel-tags">
+                            <span class="tag">Upload-Datum</span>
+                            <span class="tag">A-Z</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <section class="sub-section">
+                <h3>Fremde Playlists</h3>
+                Playlists anderer Kanäle. Klicke auf den Button, um welche hinzuzufügen.
+                <button class="add-button">+</button>
+            </section>
+            <section class="sub-section">
+                <h3>Temporäre Playlists</h3>
+                Playlists, die nur auf dieser Website existieren. Geeignet, um mehrere
+                Bearbeitungen zusammenzuführen, ohne sie auf YouTube zwischenspeichern zu müssen.
+            </section>
+        </div>
+        <div id="playlist-edit" class="main-section">
+            <h2>Bearbeiten</h2>
+            <section class="sub-section">
+                <h3>Zielplaylist</h3>
+                Alle Änderungen werden am Ende in dieser Playlist gespeichert.
+                Wähle zwischen einer neuen, einer bestehenden oder einer temporären Playlist.
+                <nav>
+                    <ul id="target-playlist-menu" class="menu line-menu">
+                        <li><input checked="checked" type="radio" name="tpMenuItem" id="tp-menu-item-0" value="target-playlist-new"><label
+                                for="tp-menu-item-0">Neu</label></li>
+                        <li><input type="radio" name="tpMenuItem" id="tp-menu-item-1"
+                                value="target-playlist-existing"><label for="tp-menu-item-1">Bestehend</label></li>
+                        <li><input type="radio" name="tpMenuItem" id="tp-menu-item-2"
+                                value="target-playlist-temp"><label for="tp-menu-item-2">Temporär</label></li>
+                    </ul>
+                </nav>
+
+                <div id="target-playlist-new" class="target-playlist">
+                    <label for="target-new-name">Name</label> <input id="target-new-name" type="text">
+                </div>
+
+                <div id="target-playlist-existing" class="target-playlist">
+                    <label for="">Wähle eine der Playlists aus der Mediathek aus:</label>
+                    <select>
+                        <option value="1">Music 1</option>
+                    </select>
+                </div>
+
+                <div id="target-playlist-temp" class="target-playlist">
+                    <label for="target-temp-name">Name</label> <input id="target-temp-name" type="text">
+                </div>
+
+                <div id="target-playlist-properties">
+                    <label for="target-new-sortedBy">Sortiert nach</label> <select id="target-new-sortedBy">
+                        <option value="manual">Manuell</option>
+                        <option value="date">Datum</option>
+                        <option value="added">Hinzugefügt</option>
+                    </select>
+                    <label for="target-new-sortingOrder">Sortierreihenfolge</label><select id="target-new-sortingOrder">
+                        <option value="az">A-Z</option>
+                        <option value="za">Z-A</option>
+                    </select>
+                </div>
+            </section>
+            <section class="sub-section">
+                <h3>Weitere Playlists</h3>
+            </section>
+            <section class="sub-section">
+                <h3>Weitere Videos</h3>
+                <ul class="panels">
+                    <li class="panel video-panel">
+                        <div class="thumbnail">
+                            <img class="thumbnail-image" src="images/border-test.png">
+                            <div class="thumbnail-overlay">7:27</div>
+                        </div>
+                        <h3 class="panel-title">Minecraft mit den Jungs</h3>
+                        <span class="panel-channel">Gronkh</span>
+                        <div class="panel-tags">
+                            <span class="tag">Hochgeladen am 19.10.2010</span>
+                            <span class="tag">Hinzugefügt am 2.10.2011</span>
+                        </div>
+                    </li>
+                    <li class="panel video-panel">
+                        <div class="thumbnail">
+                            <img class="thumbnail-image" src="images/border-test.png">
+                            <div class="thumbnail-overlay">7:27</div>
+                        </div>
+                        <h3 class="panel-title">Drama</h3>
+                        <span class="panel-channel">Drama Alert</span>
+                        <div class="panel-tags">
+                            <span class="tag">Hochgeladen am 1.1.2019</span>
+                            <span class="tag">Hinzugefügt am 2.2.2019</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <section class="sub-section">
+                <h3>Filter</h3>
+                <div id="filter">
+                    <span>Diese Kanäle aus der Zielplaylist</span>
+                    <ul class="menu box-menu">
+                        <li><input type="radio" name="filter-channel" id="filter-channel-1"><label
+                                for="filter-channel-1">Einschliessen</label></li>
+                        <li><input checked type="radio" name="filter-channel" id="filter-channel-2"><label
+                                for="filter-channel-2">Ausschliessen</label></li>
+                    </ul>
+                    <ul style="grid-column: span 2; display: flex; align-items: center;">
+                        <li class="panel channel-panel">
+                            <div class="thumbnail">
+                                <img class="thumbnail-image" src="images/hmmmm.gif">
+                            </div>
+                            <span class="panel-channel">Mr. Hmmmm</span>
+                        </li>
+                        <li class="panel channel-panel">
+                            <div class="thumbnail">
+                                <img class="thumbnail-image" src="images/Sakura no Zenya.jpg">
+                            </div>
+                            <span class="panel-channel">Sakura</span>
+                        </li>
+                        <li class="panel channel-panel">
+                            <div class="thumbnail">
+                                <img class="thumbnail-image" src="images/really big seagull.jpg">
+                            </div>
+                            <span class="panel-channel">Big Seagull</span>
+                        </li>
+                        <button class="add-button">+</button>
+                    </ul>
+                    <span>Upload-Datum</span>
+                    <ul class="menu box-menu">
+                        <li><input type="radio" name="filter-uploadDate" id="filter-uploadDate-1"><label
+                                for="filter-uploadDate-1">Vor</label></li>
+                        <li><input checked type="radio" name="filter-uploadDate" id="filter-uploadDate-2"><label
+                                for="filter-uploadDate-2">Nach</label></li>
+                    </ul>
+                    <input type="date" style="grid-column: span 2;">
+                    <span style="grid-column: span 2;">Diese Videos ausschliessen:</span>
+                    <ul style="grid-column: span 2;" class="panels">
+                        <li class="panel video-panel">
+                            <div class="thumbnail">
+                                <img class="thumbnail-image" src="images/border-test.png">
+                                <div class="thumbnail-overlay">7:27</div>
+                            </div>
+                            <h3 class="panel-title">Hasse dieses Video >:(</h3>
+                            <span class="panel-channel">Logan Paul</span>
+                            <div class="panel-tags">
+                                <span class="tag">Hochgeladen am 31.12.2017</span>
+                                <span class="tag">Hinzugefügt am 1.1.2018</span>
+                            </div>
+                        </li>
+                        <li class="panel video-panel">
+                            <div class="thumbnail">
+                                <img class="thumbnail-image" src="images/border-test.png">
+                                <div class="thumbnail-overlay">7:27</div>
+                            </div>
+                            <h3 class="panel-title">Meh</h3>
+                            <span class="panel-channel">Jake Paul</span>
+                            <div class="panel-tags">
+                                <span class="tag">Hochgeladen am 9.6.2069</span>
+                                <span class="tag">Hinzugefügt am 6.9.2069</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="sub-section">
+                <h3>Zusammenfassung</h3>
+                <span id="summary-text">Neue Playlist <b>Asdf</b>,
+                    sortiert nach <b>Upload-Datum, Z-A</b></span>
+                <button id="create-playlist" type="submit">Jetzt Playlist erstellen</button>
+            </section>
+        </div>
+        <div id="playlist-preview" class="main-section">
+            <h2>Vorschau</h2>
+            <section class="sub-section">
+                Dies ist eine Vorschau der Playlist, wie sie nach gespeicherten Änderungen aussähe.
+                <ul class="panels">
+                    <li class="panel video-panel">
+                        <div class="thumbnail">
+                            <img class="thumbnail-image" src="images/border-test.png">
+                            <div class="thumbnail-overlay">7:27</div>
+                        </div>
+                        <h3 class="panel-title">Das ist ein Testtitel, ye boii</h3>
+                        <span class="panel-channel">FlashMiners</span>
+                        <div class="panel-tags">
+                            <span class="tag">Hochgeladen am 7.10.2016</span>
+                            <span class="tag">Hinzugefügt am 17.10.2016</span>
+                        </div>
+                    </li>
+                    <li class="panel video-panel">
+                        <div class="thumbnail">
+                            <img class="thumbnail-image" src="images/border-test.png">
+                            <div class="thumbnail-overlay">7:27</div>
+                        </div>
+                        <h3 class="panel-title">Das ist ein Testtitel, ye boii</h3>
+                        <span class="panel-channel">FlashMiners</span>
+                        <div class="panel-tags">
+                            <span class="tag">Hochgeladen am 7.10.2016</span>
+                            <span class="tag">Hinzugefügt am 17.10.2016</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+</body>
+
 </html>
